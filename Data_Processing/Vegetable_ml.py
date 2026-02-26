@@ -203,7 +203,7 @@ for i, c in enumerate(COMMODITIES):
     ax4.tick_params(colors='white', labelsize=8)
     for _, spine in ax4.spines.items(): spine.set_color('#333')
 
-plt.savefig('./Agri-Hotri_Price_Prediction/outputs/fig1_eda.png', dpi=150, bbox_inches='tight',
+plt.savefig('./Agri-Hotri_Price_Prediction/outputs/Vegetable/fig1_eda.png', dpi=150, bbox_inches='tight',
             facecolor='#0f1117')
 plt.close()
 print("   fig1_eda.png saved")
@@ -254,7 +254,7 @@ for row, c in enumerate(COMMODITIES):
                 f'{val:.1f}%', va='center', ha='left', color='white', fontsize=8)
 
 plt.tight_layout(rect=[0, 0, 1, 0.97])
-plt.savefig('./Agri-Hotri_Price_Prediction/outputs/fig2_model_comparison.png', dpi=150, bbox_inches='tight',
+plt.savefig('./Agri-Hotri_Price_Prediction/outputs/Vegetable/fig2_model_comparison.png', dpi=150, bbox_inches='tight',
             facecolor='#0f1117')
 plt.close()
 print("   fig2_model_comparison.png saved")
@@ -309,7 +309,7 @@ for row, c in enumerate(COMMODITIES):
     for spine in ax2.spines.values(): spine.set_color('#333')
 
 plt.tight_layout(rect=[0, 0, 1, 0.97])
-plt.savefig('./Agri-Hotri_Price_Prediction/outputs/fig3_actual_vs_predicted.png', dpi=150, bbox_inches='tight',
+plt.savefig('./Agri-Hotri_Price_Prediction/outputs/Vegetable/fig3_actual_vs_predicted.png', dpi=150, bbox_inches='tight',
             facecolor='#0f1117')
 plt.close()
 print("   fig3_actual_vs_predicted.png saved")
@@ -353,7 +353,7 @@ for row, c in enumerate(COMMODITIES):
     for spine in ax2.spines.values(): spine.set_color('#333')
 
 plt.tight_layout(rect=[0, 0, 1, 0.97])
-plt.savefig('./Agri-Hotri_Price_Prediction/outputs/fig4_feature_importance_residuals.png', dpi=150, bbox_inches='tight',
+plt.savefig('./Agri-Hotri_Price_Prediction/outputs/Vegetable/fig4_feature_importance_residuals.png', dpi=150, bbox_inches='tight',
             facecolor='#0f1117')
 plt.close()
 print("   fig4_feature_importance_residuals.png saved")
@@ -385,7 +385,7 @@ for ax, c in zip(axes, COMMODITIES):
     bars[best_bar_pos].set_edgecolor('gold'); bars[best_bar_pos].set_linewidth(2)
 
 plt.tight_layout()
-plt.savefig('./Agri-Hotri_Price_Prediction/outputs/fig5_leaderboard.png', dpi=150, bbox_inches='tight',
+plt.savefig('./Agri-Hotri_Price_Prediction/outputs/Vegetable/fig5_leaderboard.png', dpi=150, bbox_inches='tight',
             facecolor='#0f1117')
 plt.close()
 print("   fig5_leaderboard.png saved")
@@ -403,4 +403,4 @@ for c in COMMODITIES:
     print(f"{c.capitalize():<12} {best['model']:<25} {best['MAE']:>8.2f} {best['RMSE']:>8.2f} "
           f"{best['R2']:>8.4f} {best['MAPE']:>7.2f}%")
 print("="*70)
-print("\n All outputs saved to ./Agri-Hotri_Price_Prediction/outputs/")
+print("\n All outputs saved to ./Agri-Hotri_Price_Prediction/outputs/Vegetable/")
