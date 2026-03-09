@@ -139,7 +139,7 @@ def build_models():
         Ridge(alpha=50, random_state=42),
 
         'Lasso Regression':
-        Lasso(alpha=2, max_iter=1000, random_state=42),
+        Lasso(alpha=40, max_iter=1000, random_state=42),
 
         'Extra Trees':             ExtraTreesRegressor(n_estimators=200, max_depth=12,
                                                        min_samples_leaf=5, random_state=42, n_jobs=-1),
