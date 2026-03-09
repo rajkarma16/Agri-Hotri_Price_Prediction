@@ -82,13 +82,12 @@ NUMERIC_FEATURES_WANTED = [
     # ── Price lags
     'price_lag_1', 'price_lag_3', 'price_lag_7', 'price_lag_14', 'price_lag_30',
     # ── Rolling price stats
-    'price_rolling_median_7', 'price_rolling_mean_14', 'price_rolling_mean_30',
+     'price_rolling_mean_14', 'price_rolling_mean_30',
     # ── Price volatility
     'price_volatility_7', 'price_volatility_14', 'price_volatility_30',
     # ── Price momentum
     'price_pct_change_3', 'price_pct_change_7', 'price_pct_change_30',
-    # ── Price regime
-    'price_vs_30d_mean',
+
 ]
 
 NUMERIC_FEATURES = [f for f in NUMERIC_FEATURES_WANTED if f in df.columns]
@@ -137,10 +136,10 @@ def build_models():
 
         # Linear models (best for cereals)
         'Ridge Regression':
-        Ridge(alpha=50),
+        Ridge(alpha=50, random_state=42),
 
         'Lasso Regression':
-        Lasso(alpha=10, max_iter=10000),
+        Lasso(alpha=2, max_iter=1000, random_state=42),
 
         'Extra Trees':             ExtraTreesRegressor(n_estimators=200, max_depth=12,
                                                        min_samples_leaf=5, random_state=42, n_jobs=-1),
@@ -166,6 +165,33 @@ def build_models():
             min_samples_leaf=30,
             l2_regularization=1.0,
             random_state=42
+        ),
+
+        'XGBoost':
+        XGBRegressor(
+            n_estimators=800,
+            learning_rate=0.02,
+            max_depth=5,
+            min_child_weight=3,
+            gamma=0.1,
+            subsample=0.8,
+            colsample_bytree=0.8,
+            reg_alpha=0.1,
+            reg_lambda=1.0,
+            random_state=42,
+            n_jobs=-1
+        ),
+
+        'Random Forest':
+        RandomForestRegressor(
+            n_estimators=600,
+            max_depth=8,
+            min_samples_split=10,
+            min_samples_leaf=5,
+            max_features='sqrt',
+            bootstrap=True,
+            random_state=42,
+            n_jobs=-1
         )
     }
 
